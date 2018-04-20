@@ -1,0 +1,36 @@
+{% extends "layout.html" %}
+{% block title %}Reports{% endblock %}
+{% block head %}{% endblock %}
+{% block content %}
+    <form method=post enctype=multipart/form-data>
+        <p>Enter report IDs separated by commas to compare reports:</p>
+        <p><input type="text" name="report_ids_to_compare"></p>
+    </form>
+    <h1>Reports</h1>
+    <table>
+        <thead></thead>
+        <tr>
+            {% for cell in ['id', 'type', 'subtype', 'uploaded_at', 'uploaded_by'] %}
+                <th>{{ cell }}</th>
+            {% endfor %}
+            {% for cell in ['created_by', 'created_at', 'package_version', 'config_version'] %}
+                <th>{{ cell }}</th>
+            {% endfor %}
+        </tr>
+        <tbody></tbody>
+        {% for report in reports %}
+            <tr>
+                {% for cell in ['id', 'type', 'subtype', 'uploaded_at', 'uploaded_by'] %}
+                    {% if cell == 'id' %}
+                        <td><a href="reports/{{ report['id'] }}">{{ report[cell] }}</a></td>
+                    {% else %}
+                        <td>{{ report.get(cell, 'unknown') }}</td>
+                    {% endif %}
+                {% endfor %}
+                {% for cell in ['created_by', 'created_at', 'package_version', 'config_version'] %}
+                    <td>{{ report.report.get(cell, 'unknown') }}</td>
+                {% endfor %}
+            </tr>
+        {% endfor %}
+    </table>
+{% endblock %}

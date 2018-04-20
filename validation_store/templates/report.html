@@ -1,0 +1,40 @@
+{% extends "layout.html" %}
+{% block title %}Report {{ report['id'] }}{% endblock %}
+{% block head %}
+    <script src="{{ url_for('static', filename='confusion_matrix.js') }}"></script>
+    <script src="https://d3js.org/d3.v4.js"></script>
+    <script>var reportId={{ report['id'] }}</script>
+{% endblock %}
+{% block content %}
+    <h1>{{ "Report #{}, type: '{}', subtype: '{}'".format(report['id'], report['type'], report['subtype']) }}</h1>
+    <div id="main" class="{{ '{} {}'.format(report['type'], report['subtype']) }}">
+        <div id="report-metadata">
+            <h2>Report metadata</h2>
+            <ul>
+                <li>Data source: <p class="code-block">{{ report.report.data_source }}</p></li>
+                <li>Report prepared by: {{ report.report.created_by }}</li>
+                <li>Report created at: {{ report.report.created_at }}</li>
+                <li>Report config version: {{ report.report.config_version }}</li>
+                <li>Report package version: {{ report.report.package_version }}</li>
+                <li>Uploaded by: {{ report.uploaded_by }}</li>
+                <li>Uploaded at: {{ report.uploaded_at }}</li>
+            </ul>
+        </div>
+        {% if report.writeup %}
+        <div id="writeup">
+            <h2>Writeup</h2>
+            {% set writeup = report.writeup %}
+            <p>
+            {{ writeup|replace("\n\r", "<br />")|safe }}
+            </p>
+        </div>
+        {% endif %}
+    </div>
+    <div id="report-stats">
+        <h2>Report stats and figures</h2>
+        <!--Report script will fill this block -->
+    </div>
+{% endblock %}
+{% block footer %}
+    <script type="text/javascript" src="{{ url_for('static', filename=script) }}"></script>
+{% endblock %}

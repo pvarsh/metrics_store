@@ -1,0 +1,4 @@
+Flask==0.12.2
+Flask-Navigation==0.2.0
+psycopg2==2.7.4
+simplejson==3.13.2

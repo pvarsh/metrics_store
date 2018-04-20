@@ -1,0 +1,125 @@
+h1, h2, h3, h4, th {
+    color: #3f454e;
+}
+
+#writeup {
+    width: 100%;
+    margin-bottom: 30px;
+}
+#main h1 {
+    width: 100%;
+}
+
+td {
+    font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
+}
+
+table.binary-confusion-matrix,
+table.binary-confusion-matrix td {
+    padding: 10px;
+    border: 1px black solid;
+}
+
+.axis text {
+    font: 9px sans-serif;
+}
+
+.class-report {
+    width: 50%;
+}
+
+.class-report .report-body {
+    display: flex;
+}
+
+.class-report h2 {
+    width: 100%;
+}
+
+#main {
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.axis line, .axis path {
+    fill: none;
+    stroke: #000;
+    shape-rendering: crispEdges;
+}
+
+
+.column-level .row .cell text {
+    font: 10px sans-serif;
+}
+
+td, th, tr {
+    padding: 4px;
+    border: 1px solid black;
+}
+
+table{
+    border-collapse: collapse;
+}
+
+#dataView{
+  margin-top:50px;
+}
+.column-level .labels text {
+    font: 10px sans-serif;
+}
+
+.code-block{
+    font-family: monospace;
+    padding-left: 40px;
+    padding-right: 80px;
+}
+
+div.tooltip {
+  position: absolute;
+  text-align: center;
+  width: 100px;
+  height: 28px;
+  padding: 2px;
+  font: 12px sans-serif;
+  background: lightsteelblue;
+  border: 0px;
+  border-radius: 8px;
+  pointer-events: none;
+}
+
+ul.navigation {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: #333;
+}
+
+ul.navigation li {
+    float: left;
+}
+
+ul.navigation li a {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+}
+
+ul.navigation li a:hover {
+    background-color: #111;
+}
+
+.cell-level .row .cell text {
+    font: 8px sans-serif;
+}
+
+.cell-level .labels text{
+    font: 8px sans-serif;
+}
+
+#report-stats h2 {
+    width: 100%;
+}

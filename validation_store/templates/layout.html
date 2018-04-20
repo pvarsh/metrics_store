@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    {% block head %}
+    <title>{% block title %}{% endblock %} - Validation store</title>
+    <meta charset="UTF-8">
+    {% endblock %}
+</head>
+<body>
+<div id="navigation">
+    <ul class="navigation">
+        {% for item in nav.top %}
+            <li class="{{ 'active' if item.is_active else '' }}">
+                <a href="{{ item.url }}">{{ item.label }}</a>
+            </li>
+        {% endfor %}
+    </ul>
+</div>
+<div id="content">{% block content %}{% endblock %}</div>
+<div id="footer">{% block footer %}{% endblock %}</div>
+</body>
+</html>

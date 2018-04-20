@@ -1,0 +1,12 @@
+{% extends "layout.html" %}
+{% block title %}Reports{% endblock %}
+{% block head %}{% endblock %}
+{% block content %}
+<h1>Upload a report file</h1>
+<form method=post enctype=multipart/form-data>
+  <p>Uploader name: <input type="text" name="uploaded_by"></p>
+  <p><input type=file name=validation_report><input type=submit value=Upload></p>
+  <p>Report writeup: <textarea name="writeup" cols="80" rows="25"></textarea></p>
+</form>
+{% endblock %}
+{% block footer %}{% endblock %}

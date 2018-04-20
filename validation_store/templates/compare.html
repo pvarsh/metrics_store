@@ -1,0 +1,14 @@
+{% extends "layout.html" %}
+{% block title %}Compare{% endblock %}
+{% block head %}
+    <script src="https://d3js.org/d3.v4.js"></script>
+    <script>var reportIDs={{ report_ids }};</script>
+{% endblock %}
+{% block content %}
+    <div id="main">
+        <h1>Report comparison</h1>
+    </div>
+{% endblock %}
+{% block footer %}
+    <script type="text/javascript" src="{{ url_for('static', filename=script) }}"></script>
+{% endblock %}
