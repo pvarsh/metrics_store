@@ -95,31 +95,26 @@ I'm curious if any other teams may find this useful. Send me a PR.
 ## Database setup
 Currently this only works with Postgres. Log into `psql` and run
 ```sql
-CREATE ROLE metrics_store WITH PASSWORD 'metrics';
+CREATE ROLE metrics_store WITH PASSWORD '<make-some-password>';
 CREATE DATABASE metrics_store OWNER metrics_store;
 CREATE TABLE validation_reports (id serial, type text, subtype text, report JSON, uploaded_by text, writeup text);
 GRANT ALL PRIVILEGES ON TABLE validation_reports TO metrics_store;
 ```
-## Environment variables & running
-You'll need to edit [these lines](https://github.com/pvarsh/metrics_store/blob/master/validation_store/db.py#L9-L15) to be
-```python
-ENV_VARIABLES = { 
-    'host': 'HOST',
-    'port': 'PORT',
-    'user': 'USER',
-    'database': 'DATABASE',
-    'password': 'PASSWORD',
-}
-```
+## Running the web app
+
+### Environment variables and starting the server
 
 To run the Flask web server, go to the directory containing `app.py` and run 
+
 ```bash
 FLASK_APP=app.py \
 METRICS_DB_HOST=localhost \
 METRICS_DB_PORT=5432 \
 METRICS_DB_DATABASE=metrics_store \
 METRICS_DB_USER=metrics_store \
-METRICS_DB_PASSWORD=metrics \
+METRICS_DB_PASSWORD=<the-database-password-you-made-above> \
 flask run
 ```
-(but use a better password if serving not only locally).
+
+Check the console output to see the host and port the site is served on (probably localhost:5000). Open that URL in your browser, 
+and try uploading the example data from [data/](data) directory.
