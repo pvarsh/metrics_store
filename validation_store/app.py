@@ -5,7 +5,7 @@ import simplejson
 import flask
 from flask.ext.navigation import Navigation
 
-import db
+from . import db
 
 app = flask.Flask(__name__)
 nav = Navigation(app)
