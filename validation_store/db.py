@@ -7,11 +7,11 @@ TABLE_NAME = 'validation_reports'
 INSERT_QUERY_TEMPLATE = "INSERT INTO {} (type, subtype, report, uploaded_by, writeup) VALUES (%s, %s, %s, %s, %s) RETURNING ID".format(TABLE_NAME)
 
 ENV_VARIABLES = {
-    'host': 'METRICS_HOST',
-    'port': 'METRICS_PORT',
-    'user': 'METRICS_USER',
-    'database': 'METRICS_DATABASE',
-    'password': 'METRICS_PASSWORD',
+    'host': 'METRICS_DB_HOST',
+    'port': 'METRICS_DB_PORT',
+    'user': 'METRICS_DB_USER',
+    'database': 'METRICS_DB_DATABASE',
+    'password': 'METRICS_DB_PASSWORD',
 }
 
 def dsn():

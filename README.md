@@ -115,11 +115,11 @@ ENV_VARIABLES = {
 To run the Flask web server, go to the directory containing `app.py` and run 
 ```bash
 FLASK_APP=app.py \
-HOST=localhost \
-PORT=5432 \
-DATABASE=metrics_store \
-USER=metrics_store \
-PASSWORD=metrics \
+METRICS_DB_HOST=localhost \
+METRICS_DB_PORT=5432 \
+METRICS_DB_DATABASE=metrics_store \
+METRICS_DB_USER=metrics_store \
+METRICS_DB_PASSWORD=metrics \
 flask run
 ```
 (but use a better password if serving not only locally).
